@@ -22,6 +22,11 @@ class TaskService: Service<TaskRoute> {
                   onError: onError, always: always)
     }
     
+    func create(task: TaskItem, onSuccess: @escaping (Response<TaskItem>?) -> Void,
+               onError: @escaping (RestError?) -> Void,
+               always: @escaping () -> Void) {
+        try! call(.create(task: task), type: TaskItem.self, onSuccess: onSuccess, onError: onError, always: always)
+    }
 
     
 }

@@ -11,6 +11,7 @@ import UIKit
 class TaskTableViewController: UITableViewController {
 
     var tasks: Tasks?
+    var selectedTaskItem: TaskItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,18 +78,27 @@ class TaskTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return CGFloat(100)
-        
     }
     
-    /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.selectedTaskItem = self.tasks?.results![indexPath.row]
+        performSegue(withIdentifier: "taskDetail", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let taskDetailVC: TaskDetailViewController = segue.destination as! TaskDetailViewController
+        taskDetailVC.taskItem = self.selectedTaskItem
+    }
+    
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -98,8 +108,16 @@ class TaskTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
+    
+    @IBAction func addTask(_ sender: Any) {
+        
+        self.selectedTaskItem = nil
+        performSegue(withIdentifier: "taskDetail", sender: self)
+        
+    }
+    
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

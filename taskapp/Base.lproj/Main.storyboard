@@ -131,7 +131,6 @@
                                     <outlet property="lblDescription" destination="j3r-zf-8KZ" id="Ndt-2z-4n5"/>
                                     <outlet property="lblExpDate" destination="8b2-ah-bbM" id="yhH-P3-3G4"/>
                                     <outlet property="lblOwner" destination="jgP-WC-Vj9" id="mHt-dp-aGF"/>
-                                    <segue destination="Mbl-SR-fHc" kind="show" id="57I-8Z-q0M"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -144,21 +143,24 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Add" image=" Add" id="Hs8-dd-Jup">
                                 <connections>
-                                    <segue destination="Mbl-SR-fHc" kind="show" id="S4x-K2-UGx"/>
+                                    <action selector="addTask:" destination="Dd1-bb-elS" id="eRn-Al-bdi"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Search" image=" Search" id="LtI-ul-gjb"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Mbl-SR-fHc" kind="show" identifier="taskDetail" id="UhG-in-6Im"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2PA-qO-OpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1461.5999999999999" y="116.49175412293854"/>
         </scene>
-        <!--New Task-->
+        <!--Task Detail-->
         <scene sceneID="1C7-f9-I3v">
             <objects>
-                <viewController id="Mbl-SR-fHc" sceneMemberID="viewController">
+                <viewController id="Mbl-SR-fHc" customClass="TaskDetailViewController" customModule="taskapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Omy-lQ-CBP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,12 +213,22 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="save:" destination="Mbl-SR-fHc" eventType="touchUpInside" id="TRk-yR-cbM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="stN-j5-En3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Task" id="V3f-pr-MlF"/>
+                    <navigationItem key="navigationItem" title="Task Detail" id="V3f-pr-MlF"/>
+                    <connections>
+                        <outlet property="swiCompleted" destination="fUq-QU-qqs" id="9fi-ey-aqx"/>
+                        <outlet property="taskNav" destination="V3f-pr-MlF" id="9ZB-Tg-GQb"/>
+                        <outlet property="txtDescription" destination="bLn-rm-Bip" id="KKl-sV-MPQ"/>
+                        <outlet property="txtExpDate" destination="Aeh-iI-L8N" id="NX6-LI-Y3R"/>
+                        <outlet property="txtTitle" destination="NjO-Fy-7qP" id="Rdh-Mp-en5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEP-1e-vwg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -244,7 +256,4 @@
         <image name=" Search" width="18" height="17"/>
         <image name="Oval" width="12" height="12"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="57I-8Z-q0M"/>
-    </inferredMetricsTieBreakers>
 </document>

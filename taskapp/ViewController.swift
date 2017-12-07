@@ -17,7 +17,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // already logged
+        if let accessToken = UserDefaults.standard.string(forKey: AppConfig.TOKEN_LOGADO) {
+            
+            self.token = Token()
+            self.token?.accessToken = accessToken
+            
+            DispatchQueue.main.async(execute: {
+                self.performSegue(withIdentifier: "navLogin", sender: self.token)
+            })
+            
+            return
+        }
     }
     
     override func didReceiveMemoryWarning() {

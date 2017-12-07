@@ -38,6 +38,17 @@ class TaskItem: BaseModel {
     var isComplete: Bool?
     var owner: String?
     
+    init(expDate: String, title: String, desc:String, isCompl: Bool) {
+        self.expirationDate = expDate
+        self.title = title
+        self.taskDescription = desc
+        self.isComplete = isCompl
+    }
+    
+    required convenience init() {
+        self.init(expDate: "",title: "",desc: "",isCompl: false)
+    }
+    
     override func sequence(_ map: Map) throws {
         try id <~> map["id"]
         try expirationDate <~> map["expiration_date"]
