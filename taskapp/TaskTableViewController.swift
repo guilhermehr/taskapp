@@ -10,14 +10,28 @@ import UIKit
 
 class TaskTableViewController: UITableViewController {
 
+    var tasks: Tasks?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Tasks loading ...
+        TaskService().tasks(onSuccess: { response in
+            
+            self.tasks = response?.body
+            
+            if self.tasks != nil {
+                print("Tasks Loaded! Size: \(String(describing: self.tasks?.count))")
+            }
+            
+        }, onError: {_ in 
+            
+            print("Error loading tasks...!")
+            
+        }, always: {
+            self.tableView.reloadData()
+        })
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,19 +48,38 @@ class TaskTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return tasks?.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
 
-        // Configure the cell...
+        let taskItem = self.tasks?.results![indexPath.row]
+        
+        cell.lblOwner.text = taskItem?.owner ?? ""
+        cell.lblDescription.text = taskItem?.taskDescription ?? ""
+        cell.lblExpDate.text = taskItem?.expirationDate ?? ""
+        
+        let isCompleted = taskItem?.isComplete
+        
+        if !isCompleted! {
+            cell.isCompletedOval.isHidden = true
+        }
 
+        print("cell \(indexPath.row) \(cell.lblDescription) \(cell.lblExpDate)")
+        
         return cell
     }
     
-
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return CGFloat(100)
+        
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -11,7 +11,8 @@ import EasyRest
 
 enum PostRoute: Routable {
     
-    case getPosts, login(username: String, password:String)
+    case getPosts
+    case login(username: String, password:String)
     
     var rule: Rule {
         switch self {

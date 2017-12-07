@@ -17,7 +17,7 @@ class Post: BaseModel {
     var body: String?
     
     override func sequence(_ map: Map) throws {
-        try id ~> map["id"]
+        try id <~> map["id"]
         try title <~> map["title"]
         try body <~> map["body"]
     }

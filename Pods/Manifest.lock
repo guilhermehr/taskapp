@@ -1,13 +1,13 @@
 PODS:
   - Alamofire (4.0.1)
-  - EasyRest (1.0):
+  - EasyRest (1.0.1):
     - Alamofire (~> 4.0.1)
-    - EasyRest/Core (= 1.0)
+    - EasyRest/Core (= 1.0.1)
     - Genome
-  - EasyRest/Core (1.0):
+  - EasyRest/Core (1.0.1):
     - Alamofire (~> 4.0.1)
     - Genome
-  - EasyRest/LoggerBeaver (1.0):
+  - EasyRest/LoggerBeaver (1.0.1):
     - Alamofire (~> 4.0.1)
     - Genome
     - SwiftyBeaver
@@ -29,7 +29,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  EasyRest: 6e4d3d6c2300faf14752c75d103b071f222ea233
+  EasyRest: a08ceb4b4c963b82fbbc65d6f6db3a5cb934a47e
   Genome: e4580f825985c836e68c15f4969f9449734c8dad
   SwiftyBeaver: e10b1668e0512229c36c34769b97eed3dfae2ca3
 

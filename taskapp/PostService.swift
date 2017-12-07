@@ -13,6 +13,8 @@ class PostService: Service<PostRoute> {
     
     override var base: String { return AppConfig.kHttpEndpoint }
     
+    override var interceptors: [Interceptor]? {return [AuthInterceptor()]}
+    
     func getPosts(onSuccess: @escaping (Response<[Post]>?) -> Void,
                   onError: @escaping (RestError?) -> Void,
                   always: @escaping () -> Void) {

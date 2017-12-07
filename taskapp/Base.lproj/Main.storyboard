@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="80" id="qQj-tA-N8l">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="80" id="qQj-tA-N8l" customClass="TaskTableViewCell" customModule="taskapp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qQj-tA-N8l" id="kK2-OL-fFW">
@@ -80,20 +80,26 @@
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Oval" translatesAutoresizingMaskIntoConstraints="NO" id="mW0-Tr-rii">
                                                     <rect key="frame" x="9" y="4" width="12" height="12"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgP-WC-Vj9">
-                                                    <rect key="frame" x="30" y="2" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgP-WC-Vj9">
+                                                    <rect key="frame" x="30" y="2" width="170" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="170" id="eMs-3n-08y"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8b2-ah-bbM">
-                                                    <rect key="frame" x="297" y="2" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ExpDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8b2-ah-bbM">
+                                                    <rect key="frame" x="219" y="2" width="120" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="9f4-Fh-ayD"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3r-zf-8KZ">
-                                                    <rect key="frame" x="30" y="29" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3r-zf-8KZ">
+                                                    <rect key="frame" x="30" y="29" width="301" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -108,6 +114,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="8b2-ah-bbM" secondAttribute="trailing" constant="2" id="Sy2-bk-CIA"/>
                                                 <constraint firstItem="j3r-zf-8KZ" firstAttribute="top" secondItem="jgP-WC-Vj9" secondAttribute="bottom" constant="6" id="Xeu-bi-aTv"/>
                                                 <constraint firstItem="mW0-Tr-rii" firstAttribute="leading" secondItem="MP7-Hh-Pdk" secondAttribute="leading" constant="9" id="bnh-zA-MIV"/>
+                                                <constraint firstAttribute="trailing" secondItem="j3r-zf-8KZ" secondAttribute="trailing" constant="10" id="rDT-VJ-bUB"/>
                                                 <constraint firstItem="jgP-WC-Vj9" firstAttribute="leading" secondItem="mW0-Tr-rii" secondAttribute="trailing" constant="9" id="unq-bh-Wep"/>
                                             </constraints>
                                         </view>
@@ -120,6 +127,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="isCompletedOval" destination="mW0-Tr-rii" id="R2B-Zd-pje"/>
+                                    <outlet property="lblDescription" destination="j3r-zf-8KZ" id="Ndt-2z-4n5"/>
+                                    <outlet property="lblExpDate" destination="8b2-ah-bbM" id="yhH-P3-3G4"/>
+                                    <outlet property="lblOwner" destination="jgP-WC-Vj9" id="mHt-dp-aGF"/>
                                     <segue destination="Mbl-SR-fHc" kind="show" id="57I-8Z-q0M"/>
                                 </connections>
                             </tableViewCell>

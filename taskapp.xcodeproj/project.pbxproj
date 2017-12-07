@@ -12,9 +12,12 @@
 		795E686B1FD89E3700676736 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 795E68691FD89E3700676736 /* Main.storyboard */; };
 		795E686D1FD89E3700676736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 795E686C1FD89E3700676736 /* Assets.xcassets */; };
 		795E68701FD89E3700676736 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 795E686E1FD89E3700676736 /* LaunchScreen.storyboard */; };
-		795E68791FD8A42700676736 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E68771FD8A42700676736 /* TaskTableViewCell.swift */; };
-		795E687A1FD8A42700676736 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795E68781FD8A42700676736 /* TaskTableViewCell.xib */; };
 		795E687C1FD8A8F700676736 /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E687B1FD8A8F700676736 /* TaskTableViewController.swift */; };
+		798B93B01FD9BDEB00BA597C /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798B93AF1FD9BDEB00BA597C /* AuthInterceptor.swift */; };
+		798B93B21FD9BE6600BA597C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798B93B11FD9BE6600BA597C /* Task.swift */; };
+		798B93B41FD9C7EA00BA597C /* TaskRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798B93B31FD9C7EA00BA597C /* TaskRoute.swift */; };
+		798B93B61FD9CC9900BA597C /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798B93B51FD9CC9900BA597C /* TaskService.swift */; };
+		798B93B81FD9DAC700BA597C /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798B93B71FD9DAC700BA597C /* TaskTableViewCell.swift */; };
 		799149A91FD998D80031E77B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799149A51FD998D80031E77B /* Constants.swift */; };
 		799149AA1FD998D80031E77B /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799149A61FD998D80031E77B /* PostService.swift */; };
 		799149AB1FD998D80031E77B /* PostRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799149A71FD998D80031E77B /* PostRoute.swift */; };
@@ -32,9 +35,12 @@
 		795E686C1FD89E3700676736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		795E686F1FD89E3700676736 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		795E68711FD89E3700676736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		795E68771FD8A42700676736 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
-		795E68781FD8A42700676736 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		795E687B1FD8A8F700676736 /* TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
+		798B93AF1FD9BDEB00BA597C /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
+		798B93B11FD9BE6600BA597C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		798B93B31FD9C7EA00BA597C /* TaskRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRoute.swift; sourceTree = "<group>"; };
+		798B93B51FD9CC9900BA597C /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
+		798B93B71FD9DAC700BA597C /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		799149A51FD998D80031E77B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		799149A61FD998D80031E77B /* PostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		799149A71FD998D80031E77B /* PostRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRoute.swift; sourceTree = "<group>"; };
@@ -93,9 +99,12 @@
 				795E686C1FD89E3700676736 /* Assets.xcassets */,
 				795E686E1FD89E3700676736 /* LaunchScreen.storyboard */,
 				795E68711FD89E3700676736 /* Info.plist */,
-				795E68771FD8A42700676736 /* TaskTableViewCell.swift */,
-				795E68781FD8A42700676736 /* TaskTableViewCell.xib */,
 				795E687B1FD8A8F700676736 /* TaskTableViewController.swift */,
+				798B93AF1FD9BDEB00BA597C /* AuthInterceptor.swift */,
+				798B93B11FD9BE6600BA597C /* Task.swift */,
+				798B93B31FD9C7EA00BA597C /* TaskRoute.swift */,
+				798B93B51FD9CC9900BA597C /* TaskService.swift */,
+				798B93B71FD9DAC700BA597C /* TaskTableViewCell.swift */,
 			);
 			path = taskapp;
 			sourceTree = "<group>";
@@ -171,7 +180,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				795E687A1FD8A42700676736 /* TaskTableViewCell.xib in Resources */,
 				795E68701FD89E3700676736 /* LaunchScreen.storyboard in Resources */,
 				795E686D1FD89E3700676736 /* Assets.xcassets in Resources */,
 				795E686B1FD89E3700676736 /* Main.storyboard in Resources */,
@@ -245,14 +253,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				798B93B21FD9BE6600BA597C /* Task.swift in Sources */,
 				799149A91FD998D80031E77B /* Constants.swift in Sources */,
 				799149AA1FD998D80031E77B /* PostService.swift in Sources */,
+				798B93B41FD9C7EA00BA597C /* TaskRoute.swift in Sources */,
 				795E68681FD89E3700676736 /* ViewController.swift in Sources */,
 				799149AC1FD998D80031E77B /* Post.swift in Sources */,
 				799149AB1FD998D80031E77B /* PostRoute.swift in Sources */,
 				795E68661FD89E3700676736 /* AppDelegate.swift in Sources */,
+				798B93B81FD9DAC700BA597C /* TaskTableViewCell.swift in Sources */,
+				798B93B61FD9CC9900BA597C /* TaskService.swift in Sources */,
 				795E687C1FD8A8F700676736 /* TaskTableViewController.swift in Sources */,
-				795E68791FD8A42700676736 /* TaskTableViewCell.swift in Sources */,
+				798B93B01FD9BDEB00BA597C /* AuthInterceptor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,11 +39,15 @@ class ViewController: UIViewController {
         
         
         PostService().login(username: self.txtUser.text!, password: self.txtPassword.text!, onSuccess: { response in
+            
             self.token = response?.body
             
             print("Login do usuario '\(String(describing: self.txtUser.text))' realizado com sucesso")
             self.performSegue(withIdentifier: "navLogin", sender: self.token)
             print("Token: \(String(describing: self.token))")
+            
+            print("Access Token: \(self.token?.accessToken)")
+            
             UserDefaults.standard.set(self.token?.accessToken, forKey: AppConfig.TOKEN_LOGADO)
             UserDefaults.standard.synchronize()
             
