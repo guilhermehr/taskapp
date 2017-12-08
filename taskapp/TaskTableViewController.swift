@@ -8,10 +8,81 @@
 
 import UIKit
 
-class TaskTableViewController: UITableViewController {
+
+class TaskTableViewController: UITableViewController, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
 
     var tasks: Tasks?
     var selectedTaskItem: TaskItem?
+    var filterTasks = [TaskItem]()
+    
+    @IBOutlet weak var navBar: UINavigationItem!
+    
+    @IBOutlet weak var btnSearch: UIBarButtonItem!
+    
+    var searchController: UISearchController!
+    
+    @IBAction func searchClick(_ sender: Any) {
+        
+        self.searchController = searchControllerWith(searchResultsController: nil)
+        self.searchController.searchBar.sizeToFit()
+        self.navBar.titleView = searchController.searchBar
+        self.definesPresentationContext = true
+        self.btnSearch.tintColor = UIColor.clear
+        self.btnSearch.isEnabled = false
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchController.resignFirstResponder()
+        self.btnSearch.tintColor = UIColor.blue
+        self.btnSearch.isEnabled = true
+        self.navBar.titleView = nil
+        filterTasks = (self.tasks?.results)!
+        self.tableView.reloadData()
+        
+    }
+    
+    func cancelBarButtonItemClicked() {
+        self.searchBarCancelButtonClicked(self.searchController.searchBar)
+        filterTasks = [TaskItem]()
+        self.tableView.reloadData()
+    }
+    
+    
+    func searchControllerWith(searchResultsController: UIViewController?) -> UISearchController {
+        let searchController = UISearchController(searchResultsController: searchResultsController)
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = true
+        searchController.searchBar.showsCancelButton = true
+        searchController.searchBar.barTintColor = UIColor.blue
+        
+        return searchController
+        
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            filterTasks = (self.tasks?.results)!
+        }else {
+            var results = [TaskItem]()
+            for item in (tasks?.results)! {
+                //filtra tasks
+                if item.taskDescription?.lowercased().range(of: searchText.lowercased()) != nil {
+                    results.append(item)
+                }
+            }
+            filterTasks = [TaskItem]()
+            filterTasks = results
+        }
+        self.tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +97,8 @@ class TaskTableViewController: UITableViewController {
         TaskService().tasks(onSuccess: { response in
             
             self.tasks = response?.body
+            
+            self.filterTasks = (self.tasks?.results)!
             
             if self.tasks != nil {
                 print("Tasks Loaded! Size: \(String(describing: self.tasks?.count))")
@@ -54,7 +127,7 @@ class TaskTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tasks?.results?.count ?? 0
+        return self.filterTasks.count
     }
 
     
@@ -62,13 +135,13 @@ class TaskTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
 
-        let taskItem = self.tasks?.results![indexPath.row]
+        let taskItem = self.filterTasks[indexPath.row]
         
-        cell.lblOwner.text = taskItem?.owner ?? ""
-        cell.lblDescription.text = taskItem?.taskDescription ?? ""
-        cell.lblExpDate.text = taskItem?.expirationDate ?? ""
+        cell.lblOwner.text = taskItem.owner
+        cell.lblDescription.text = taskItem.taskDescription
+        cell.lblExpDate.text = taskItem.expirationDate
         
-        cell.isCompletedOval.isHidden = !(taskItem?.isComplete)!
+        cell.isCompletedOval.isHidden = !(taskItem.isComplete)!
 
         print("cell \(indexPath.row) \(cell.lblDescription) \(cell.lblExpDate)")
         
@@ -83,7 +156,7 @@ class TaskTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.selectedTaskItem = self.tasks?.results![indexPath.row]
+        self.selectedTaskItem = self.filterTasks[indexPath.row]
         performSegue(withIdentifier: "taskDetail", sender: self)
     }
     
@@ -104,25 +177,24 @@ class TaskTableViewController: UITableViewController {
         if editingStyle == .delete {
             
             // delete
-            if let delTask = self.tasks?.results![indexPath.row] {
+            let delTask = self.filterTasks[indexPath.row]
                 
-                TaskService().delete(task: delTask, onSuccess: { _ in
-                    
-                    self.tasks?.results?.remove(at: indexPath.row)
-                    // Delete the row from the data source
-                    tableView.deleteRows(at: [indexPath], with: .fade)
-                    
-                    self.showMessage("Task deleted!")
-                    
-                }, onError: {_ in
-                    
-                    self.showMessage("Fail to delete task!")
-                    
-                }, always: {
-                    self.tableView.reloadData()
-                })
+            TaskService().delete(task: delTask, onSuccess: { _ in
                 
-            }
+                self.filterTasks.remove(at: indexPath.row)
+                // Delete the row from the data source
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                self.showMessage("Task deleted!")
+                
+            }, onError: {_ in
+                
+                self.showMessage("Fail to delete task!")
+                
+            }, always: {
+                self.tableView.reloadData()
+            })
+                
         }
     }
     
@@ -145,31 +217,6 @@ class TaskTableViewController: UITableViewController {
         performSegue(withIdentifier: "taskDetail", sender: self)
         
     }
-    
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

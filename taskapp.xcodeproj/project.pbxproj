@@ -91,25 +91,49 @@
 		795E68641FD89E3700676736 /* taskapp */ = {
 			isa = PBXGroup;
 			children = (
-				799149A51FD998D80031E77B /* Constants.swift */,
-				799149A81FD998D80031E77B /* Post.swift */,
-				799149A71FD998D80031E77B /* PostRoute.swift */,
-				799149A61FD998D80031E77B /* PostService.swift */,
-				795E68651FD89E3700676736 /* AppDelegate.swift */,
+				79BBC1EA1FDB2945008B676C /* Post */,
+				79BBC1EB1FDB2955008B676C /* Task */,
+				79BBC1EC1FDB2981008B676C /* SupportFiles */,
 				795E68671FD89E3700676736 /* ViewController.swift */,
 				795E68691FD89E3700676736 /* Main.storyboard */,
-				795E686C1FD89E3700676736 /* Assets.xcassets */,
 				795E686E1FD89E3700676736 /* LaunchScreen.storyboard */,
-				795E68711FD89E3700676736 /* Info.plist */,
 				795E687B1FD8A8F700676736 /* TaskTableViewController.swift */,
 				798B93AF1FD9BDEB00BA597C /* AuthInterceptor.swift */,
-				798B93B11FD9BE6600BA597C /* Task.swift */,
-				798B93B31FD9C7EA00BA597C /* TaskRoute.swift */,
-				798B93B51FD9CC9900BA597C /* TaskService.swift */,
 				798B93B71FD9DAC700BA597C /* TaskTableViewCell.swift */,
 				798B93B91FD9ED1F00BA597C /* TaskDetailViewController.swift */,
 			);
 			path = taskapp;
+			sourceTree = "<group>";
+		};
+		79BBC1EA1FDB2945008B676C /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				799149A81FD998D80031E77B /* Post.swift */,
+				799149A71FD998D80031E77B /* PostRoute.swift */,
+				799149A61FD998D80031E77B /* PostService.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		79BBC1EB1FDB2955008B676C /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				798B93B11FD9BE6600BA597C /* Task.swift */,
+				798B93B31FD9C7EA00BA597C /* TaskRoute.swift */,
+				798B93B51FD9CC9900BA597C /* TaskService.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		79BBC1EC1FDB2981008B676C /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				799149A51FD998D80031E77B /* Constants.swift */,
+				795E68651FD89E3700676736 /* AppDelegate.swift */,
+				795E686C1FD89E3700676736 /* Assets.xcassets */,
+				795E68711FD89E3700676736 /* Info.plist */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 		931E2522B82DACF1A862659E /* Pods */ = {
@@ -409,7 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = taskapp/Info.plist;
+				INFOPLIST_FILE = taskapp/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.task.app.taskapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,7 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = taskapp/Info.plist;
+				INFOPLIST_FILE = taskapp/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.task.app.taskapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
