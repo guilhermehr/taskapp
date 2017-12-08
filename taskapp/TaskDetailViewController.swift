@@ -61,6 +61,22 @@ class TaskDetailViewController: UIViewController {
         // update
         if let _ = self.taskID {
             
+            let updTask = TaskItem(id: self.taskID!, expDate: txtExpDate.text!, title: txtTitle.text!, desc: txtDescription.text!, isCompl: swiCompleted.isOn, owner: (self.taskItem?.owner)!)
+            
+            TaskService().update(task: updTask, onSuccess: { response in
+                
+                self.taskItem = response?.body
+                self.initTask()
+                self.showMessage("Task updated!")
+                
+            }, onError: {_ in
+                
+                self.showMessage("Fail to update task!")
+                
+            }, always: {
+                
+            })
+
             
         } else { // create
            
@@ -69,9 +85,7 @@ class TaskDetailViewController: UIViewController {
             TaskService().create(task: newTask, onSuccess: { response in
                 
                 self.taskItem = response?.body
-                
                 self.initTask()
-                
                 self.showMessage("Task saved!")
                 
             }, onError: {_ in 
@@ -81,9 +95,7 @@ class TaskDetailViewController: UIViewController {
             }, always: {
                 
             })
-            
         }
-        
     }
     
     func showMessage(_ msg:String) {

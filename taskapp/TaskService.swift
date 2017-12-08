@@ -27,6 +27,18 @@ class TaskService: Service<TaskRoute> {
                always: @escaping () -> Void) {
         try! call(.create(task: task), type: TaskItem.self, onSuccess: onSuccess, onError: onError, always: always)
     }
+    
+    func update(task: TaskItem, onSuccess: @escaping (Response<TaskItem>?) -> Void,
+                onError: @escaping (RestError?) -> Void,
+                always: @escaping () -> Void) {
+        try! call(.update(task: task), type: TaskItem.self, onSuccess: onSuccess, onError: onError, always: always)
+    }
+    
+    func delete(task: TaskItem, onSuccess: @escaping (Response<TaskItem>?) -> Void,
+                onError: @escaping (RestError?) -> Void,
+                always: @escaping () -> Void) {
+        try! call(.delete(task: task), type: TaskItem.self, onSuccess: onSuccess, onError: onError, always: always)
+    }
 
     
 }

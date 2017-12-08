@@ -16,8 +16,8 @@ import Genome
 class Tasks: BaseModel {
     
     var count: Int?
-    var next: Int?
-    var previous: Int?
+    var next: String?
+    var previous: String?
     var results: [TaskItem]?
     
     override func sequence(_ map: Map) throws {
@@ -43,6 +43,12 @@ class TaskItem: BaseModel {
         self.title = title
         self.taskDescription = desc
         self.isComplete = isCompl
+    }
+    
+    convenience init(id: String, expDate: String, title: String, desc:String, isCompl: Bool, owner: String) {
+        self.init(expDate: expDate, title: title, desc: desc, isCompl: isCompl)
+        self.id = id
+        self.owner = owner
     }
     
     required convenience init() {

@@ -16,6 +16,12 @@ class TaskTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.loadTasks()
+
+    }
+    
+    func loadTasks() {
+        
         // Tasks loading ...
         TaskService().tasks(onSuccess: { response in
             
@@ -25,16 +31,15 @@ class TaskTableViewController: UITableViewController {
                 print("Tasks Loaded! Size: \(String(describing: self.tasks?.count))")
             }
             
-        }, onError: {_ in 
+        }, onError: {_ in
             
             print("Error loading tasks...!")
             
         }, always: {
             self.tableView.reloadData()
         })
-
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,7 +54,7 @@ class TaskTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tasks?.count ?? 0
+        return tasks?.results?.count ?? 0
     }
 
     
@@ -63,11 +68,7 @@ class TaskTableViewController: UITableViewController {
         cell.lblDescription.text = taskItem?.taskDescription ?? ""
         cell.lblExpDate.text = taskItem?.expirationDate ?? ""
         
-        let isCompleted = taskItem?.isComplete
-        
-        if !isCompleted! {
-            cell.isCompletedOval.isHidden = true
-        }
+        cell.isCompletedOval.isHidden = !(taskItem?.isComplete)!
 
         print("cell \(indexPath.row) \(cell.lblDescription) \(cell.lblExpDate)")
         
@@ -97,18 +98,46 @@ class TaskTableViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            
+            // delete
+            if let delTask = self.tasks?.results![indexPath.row] {
+                
+                TaskService().delete(task: delTask, onSuccess: { _ in
+                    
+                    self.tasks?.results?.remove(at: indexPath.row)
+                    // Delete the row from the data source
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    
+                    self.showMessage("Task deleted!")
+                    
+                }, onError: {_ in
+                    
+                    self.showMessage("Fail to delete task!")
+                    
+                }, always: {
+                    self.tableView.reloadData()
+                })
+                
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadTasks()
     }
 
+    func showMessage(_ msg:String) {
+        let myalert = UIAlertController(title: "Mensagem", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        myalert.addAction(UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction!) in
+            
+            myalert.dismiss(animated: true)
+        })
+        self.present(myalert, animated: true)
+    }
     
     @IBAction func addTask(_ sender: Any) {
         

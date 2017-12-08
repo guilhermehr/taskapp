@@ -9,6 +9,7 @@ target 'taskapp' do
 
   pod 'EasyRest'
   pod 'EasyRest/LoggerBeaver'
+  pod 'IQKeyboardManagerSwift'
 
 end
 
