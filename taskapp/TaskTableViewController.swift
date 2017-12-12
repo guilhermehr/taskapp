@@ -185,6 +185,8 @@ class TaskTableViewController: UITableViewController, UISearchBarDelegate, UISea
                 // Delete the row from the data source
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 
+                self.loadTasks()
+                
                 self.showMessage("Task deleted!")
                 
             }, onError: {_ in
