@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "taskapp/TaskDetailViewController.swift"
-            timestampString = "534452985.149604"
+            timestampString = "534812764.322147"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "save(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "taskapp/TaskDetailViewController.swift"
-            timestampString = "534452985.149863"
+            timestampString = "534812764.322785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "save(_:)"
             landmarkType = "7">
             <Locations>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "taskapp/TaskDetailViewController.swift"
-            timestampString = "534452985.15138"
+            timestampString = "534812764.323449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "save(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "taskapp/TaskDetailViewController.swift"
-            timestampString = "534452985.151459"
+            timestampString = "534812764.323791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "save(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -474,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "taskapp/TaskDetailViewController.swift"
-            timestampString = "534452985.15152"
+            timestampString = "534812764.324122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "save(_:)"
             landmarkType = "7">
             <Locations>
@@ -490,11 +490,11 @@
                   moduleName = "taskapp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guilherme/Documents/cursoios/github/taskapp/taskapp/TaskDetailViewController.swift"
-                  timestampString = "534463520.046887"
+                  timestampString = "534812772.273812"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
                   offsetFromSymbolStart = "116">
                </Location>
                <Location
@@ -505,11 +505,11 @@
                   moduleName = "taskapp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guilherme/Documents/cursoios/github/taskapp/taskapp/TaskDetailViewController.swift"
-                  timestampString = "534463520.051607"
+                  timestampString = "534812772.276587"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
                   offsetFromSymbolStart = "5169">
                </Location>
             </Locations>
@@ -522,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "taskapp/TaskDetailViewController.swift"
-            timestampString = "534452985.151578"
+            timestampString = "534812764.324449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "save(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -592,6 +592,22 @@
             startingLineNumber = "77"
             endingLineNumber = "77"
             landmarkName = "searchBar(_:textDidChange:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "taskapp/TaskDetailViewController.swift"
+            timestampString = "534812764.324876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "save(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

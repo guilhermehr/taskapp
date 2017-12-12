@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7931A84E1FE0915D00E0E841 /* TaskDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7931A84D1FE0915D00E0E841 /* TaskDto.swift */; };
 		795E68661FD89E3700676736 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E68651FD89E3700676736 /* AppDelegate.swift */; };
 		795E68681FD89E3700676736 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E68671FD89E3700676736 /* ViewController.swift */; };
 		795E686B1FD89E3700676736 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 795E68691FD89E3700676736 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		38CE4CE825A0B70E1E78586A /* Pods-taskapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-taskapp/Pods-taskapp.debug.xcconfig"; sourceTree = "<group>"; };
 		68B77A6C25C9BA1A20DA4540 /* Pods_taskapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7931A84D1FE0915D00E0E841 /* TaskDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDto.swift; sourceTree = "<group>"; };
 		795E68621FD89E3700676736 /* taskapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		795E68651FD89E3700676736 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		795E68671FD89E3700676736 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				798B93B11FD9BE6600BA597C /* Task.swift */,
 				798B93B31FD9C7EA00BA597C /* TaskRoute.swift */,
 				798B93B51FD9CC9900BA597C /* TaskService.swift */,
+				7931A84D1FE0915D00E0E841 /* TaskDto.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -242,6 +245,8 @@
 				"${BUILT_PRODUCTS_DIR}/EasyRest/EasyRest.framework",
 				"${BUILT_PRODUCTS_DIR}/Genome/Genome.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -250,6 +255,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyRest.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Genome.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7931A84E1FE0915D00E0E841 /* TaskDto.swift in Sources */,
 				798B93B21FD9BE6600BA597C /* Task.swift in Sources */,
 				799149A91FD998D80031E77B /* Constants.swift in Sources */,
 				799149AA1FD998D80031E77B /* PostService.swift in Sources */,

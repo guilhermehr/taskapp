@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TaskDetailViewController: UIViewController {
 
@@ -66,6 +67,11 @@ class TaskDetailViewController: UIViewController {
             TaskService().update(task: updTask, onSuccess: { response in
                 
                 self.taskItem = response?.body
+                
+                self.taskItem?.toTaskDto().insert().printItems()
+                
+                
+                
                 self.initTask()
                 self.showMessage("Task updated!")
                 
@@ -81,6 +87,7 @@ class TaskDetailViewController: UIViewController {
         } else { // create
            
             let newTask = TaskItem(expDate: txtExpDate.text!, title: txtTitle.text!, desc: txtDescription.text!, isCompl: swiCompleted.isOn)
+            
             
             TaskService().create(task: newTask, onSuccess: { response in
                 
